@@ -30,6 +30,13 @@ public class Tools {
         return sdf.format(now);
     }
 
+    public static String getTomorowDate(String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, Locale.FRANCE);
+        Date tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return sdf.format(tomorrow);
+    }
+
     public static int getNextNotifId() {
         if (atomicInteger == null) {
             atomicInteger = new AtomicInteger(INITIAL_GENERATOR_VALUE);

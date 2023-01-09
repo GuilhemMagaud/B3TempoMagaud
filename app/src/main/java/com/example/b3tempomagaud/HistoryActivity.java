@@ -53,7 +53,7 @@ public class HistoryActivity extends AppCompatActivity {
         if (edfApi != null) {
 
             // Create call to getTempoDaysLeft
-            Call<TempoHistory> call = edfApi.getTempoHistory(Tools.getNowDate("yyyy"), Tools.getNowDate("yyyy"));
+            Call<TempoHistory> call = edfApi.getTempoHistory(Tools.getNowDate("yyyy"), Tools.getTomorowDate("yyyy"));
 
             call.enqueue(new Callback<TempoHistory>() {
                 @Override
