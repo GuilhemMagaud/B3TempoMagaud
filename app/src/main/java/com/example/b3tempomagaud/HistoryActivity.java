@@ -50,10 +50,18 @@ public class HistoryActivity extends AppCompatActivity {
 
     }
     public void reloaddate(){
+        String YearNow = Tools.getNowDate("yyyy");
+        String YearBefore = "";
+        try{
+            YearBefore = String.valueOf(Integer.parseInt(YearNow) - 1);
+        }catch(NumberFormatException e){
+
+        }
+
         if (edfApi != null) {
 
             // Create call to getTempoDaysLeft
-            Call<TempoHistory> call = edfApi.getTempoHistory(Tools.getNowDate("yyyy"), Tools.getTomorowDate("yyyy"));
+            Call<TempoHistory> call = edfApi.getTempoHistory(YearBefore, YearNow);
 
             call.enqueue(new Callback<TempoHistory>() {
                 @Override
