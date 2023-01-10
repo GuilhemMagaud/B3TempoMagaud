@@ -13,5 +13,8 @@
     <string name="tempo_blue_color_texte">bleu</string>
     <string name="tempo_unknow_color_texte">inconue</string>
     <string name="tempo_notif_text">la couleur de demain est</string>
+    <string name="tpi_date">Date:</string>
+    <string name="tpi_couleur">Couleur:</string>
+
 
 </resources>

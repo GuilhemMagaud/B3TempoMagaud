@@ -1,16 +1,21 @@
 package com.example.b3tempomagaud;
 
+import static androidx.core.content.PackageManagerCompat.LOG_TAG;
+
+import android.util.Log;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Tools {
-
+    private static final String LOG_TAG = Tools.class.getSimpleName();
     private static AtomicInteger atomicInteger = null;
     private static final int INITIAL_GENERATOR_VALUE = 2023;
     // prevent object instanciation
     private Tools() {
+
     }
     /*
      * --- Helpers methods ---
@@ -43,6 +48,18 @@ public class Tools {
             return atomicInteger.get();
         } else {
             return atomicInteger.incrementAndGet();
+        }
+    }
+
+    public  static String formatTempoHistoryDate(String apiDate) {
+        try {
+            String[] ymdArray = apiDate.split("-");
+            Date date = new Date(Integer.parseInt(ymdArray[0])-1900, Integer.parseInt(ymdArray[1])-1, Integer.parseInt(ymdArray[2]));
+            SimpleDateFormat sdf = new SimpleDateFormat("E d MMM yyyy", Locale.FRANCE);
+            return sdf.format(date);
+        } catch (NumberFormatException e) {
+            Log.w(LOG_TAG,e.getMessage());
+            return "?";
         }
     }
 }

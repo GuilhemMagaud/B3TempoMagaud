@@ -56,7 +56,7 @@ public class HistoryActivity extends AppCompatActivity {
         try{
             YearBefore = String.valueOf(Integer.parseInt(YearNow) - 1);
         }catch(NumberFormatException e){
-
+            Log.e(LOG_TAG, e.getMessage());
         }
 
         if (edfApi != null) {
