@@ -1,6 +1,7 @@
 <resources>
     <declare-styleable name="DayColorView">
         <attr name="captionText" format="string" />
+        <attr name="captionText2" format="string" />
         <attr name="captionTextSize" format="dimension" />
         <attr name="captionTextColor" format="color" />
         <attr name="dayCircleColor" format="color" />

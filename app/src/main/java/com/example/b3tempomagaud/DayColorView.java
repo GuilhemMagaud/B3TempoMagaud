@@ -21,6 +21,7 @@ public class DayColorView extends View {
     private static final float CIRCLE_SCALE = 0.9f; // circle will occupy 90% of room's view
     // Custom attributes data model
     private String captionText;
+    private String captionText2;
     private int captionColor = Color.BLACK;
     private float captionTextSize = 0;
     private int dayCircleColor = Color.GRAY;
@@ -119,12 +120,21 @@ public class DayColorView extends View {
                 paddingLeft + (contentWidth - mTextWidth) / 2,
                 paddingTop + (contentHeight + mTextHeight) / 2,
                 textPaint);
+        //
+        canvas.drawText(String.valueOf(captionText2),
+                paddingLeft + (contentWidth - mTextWidth) / 2,
+                50 + (paddingTop + (contentHeight + mTextHeight) / 2),
+                textPaint);
     }
 
     public void setDayCircleColor(TempoColor color) {
         dayCircleColor = ContextCompat.getColor(context, color.getColorResId());
         setCirclePaint();
         invalidate();
+    }
+
+    public void setCaptionText2(String texte){
+        captionText2 = texte;
     }
 
 }

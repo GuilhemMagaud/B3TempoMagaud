@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Log.d(LOG_TAG, "Tomorrow color = " + tempoDaysColor.getcouleurJourJ1().toString());
                     binding.todayDcv.setDayCircleColor(tempoDaysColor.getcouleurJourJ());
                     binding.tommorowDcv.setDayCircleColor(tempoDaysColor.getcouleurJourJ1());
+                    binding.todayDcv.setCaptionText2(getString(tempoDaysColor.getcouleurJourJ().getStringResId()));
+                    binding.tommorowDcv.setCaptionText2(getString(tempoDaysColor.getcouleurJourJ().getStringResId()));
                     checkColor4Notif(tempoDaysColor.getcouleurJourJ1());
                 } else {
                     Log.w(LOG_TAG, "call to getTempoDaysColor() failed with error code " + response.code());
