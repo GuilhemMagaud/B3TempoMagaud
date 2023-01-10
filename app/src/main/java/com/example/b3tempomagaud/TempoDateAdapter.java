@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -40,7 +38,7 @@ public class TempoDateAdapter extends RecyclerView.Adapter<TempoDateAdapter.Temp
     @Override
     public void onBindViewHolder(@NonNull TempoDateViewHolder holder, int position) {
         holder.binding.dateTv.setText(localDateSet.get(position).getDate());
-        holder.binding.colorFl.setBackgroundColor(ContextCompat.getColor(context, localDateSet.get(position).getCouleur().getResId()));
+        holder.binding.colorFl.setBackgroundColor(ContextCompat.getColor(context, localDateSet.get(position).getCouleur().getColorResId()));
     }
 
 

@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">B3TempoMagaud</string>
     <string name="not_available">ND</string>
-    <string name="history_bt">Historique</string>
+    <string name="history_bt">HISTO V1</string>
+    <string name="history_bt2">HISTO V2</string>
     <string name="dcv_tomorrow_tx">Demain</string>
     <string name="dcv_today_tx">Aujourd\'hui</string>
     <string name="not_set">not set</string>
     <string name="channel_name">Alertes Tempo</string>
     <string name="channel_description">Alerte Tempo pour les rouge et blanc</string>
+    <string name="tempo_red_color_texte">rouge</string>
+    <string name="tempo_white_color_texte">blanc</string>
+    <string name="tempo_blue_color_texte">bleu</string>
+    <string name="tempo_unknow_color_texte">inconue</string>
+    <string name="tempo_notif_text">la couleur de demain est</string>
 
 </resources>

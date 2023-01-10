@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.b3tempomagaud.databinding.ActivityHistoryBinding;
 
@@ -63,6 +64,7 @@ public class HistoryActivity extends AppCompatActivity {
             // Create call to getTempoDaysLeft
             Call<TempoHistory> call = edfApi.getTempoHistory(YearBefore, YearNow);
 
+            binding.progressBar.setVisibility(View.VISIBLE);
             call.enqueue(new Callback<TempoHistory>() {
                 @Override
                 public void onResponse(@NonNull Call<TempoHistory> call, @NonNull Response<TempoHistory> response) {
@@ -72,11 +74,12 @@ public class HistoryActivity extends AppCompatActivity {
                         Log.d(LOG_TAG,"nb elements = " + tempoDates.size());
                     }
                     tempoDateAdapter.notifyDataSetChanged();
+                    binding.progressBar.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onFailure(@NonNull Call<TempoHistory> call, @NonNull Throwable t) {
-
+                    binding.progressBar.setVisibility(View.GONE);
                 }
             });
 

@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // init views
         binding.button2.setOnClickListener(this);
 
+        binding.button.setOnClickListener(this);
+
         createNotificationChannel();
 
         // Init Retrofit client
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void reloaddays() {
         // Call to getTempoDaysColor
         Call<TempoDaysColor> call2;
-        call2 = edfApi.getTempoDaysColor("2022-12-12", IEdfApi.EDF_TEMPO_API_ALERT_TYPE);
+        call2 = edfApi.getTempoDaysColor(Tools.getNowDate("yyyy-MM-dd"),IEdfApi.EDF_TEMPO_API_ALERT_TYPE);
 
         call2.enqueue(new Callback<TempoDaysColor>() {
             @Override
@@ -129,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_launcher_foreground)
                     .setContentTitle("tomorow color")
-                    .setContentText("tomorow color is " + color)
+                    .setContentText("getString(R.string.tempo_notif_text, getString(color.getStringResId()))")
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
@@ -158,8 +160,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent();
-        intent.setClass(this,HistoryActivity.class);
-        startActivity(intent);
+        switch (v.getId()) {
+            case R.id.button2:
+                Intent intent = new Intent();
+                intent.setClass(this, HistoryActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.button:
+                Intent intent2 = new Intent();
+                intent2.setClass(this, HistoryActivityV2.class);
+                startActivity(intent2);
+                break;
+            default:
+                break;
+        }
     }
 }
